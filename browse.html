@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Browse · G-box</title>
+  <meta name="description" content="Search and filter the full G-box catalogue.">
+  <meta name="theme-color" content="#07090d">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body data-page="browse">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header>
+    <nav class="navbar navbar-expand-md g-nav" aria-label="Main navigation">
+      <div class="container">
+        <a class="g-brand" href="index.html" aria-label="G-box home">
+          <img src="assets/logo.svg" alt="" width="30" height="30"><span>G-<b>box</b></span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="nav">
+          <ul class="navbar-nav ms-auto align-items-md-center">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="browse.html">Browse</a></li>
+          <li class="nav-item"><a class="nav-link" href="watchlist.html">My List <span class="g-count" id="listCount"></span></a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About &amp; Help</a></li>
+          </ul>
+          <a class="btn btn-line btn-sm ms-md-3 mt-2 mt-md-0" href="signin.html">Sign in</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <div class="container">
+      <div class="page-head">
+        <h1>Browse</h1>
+        <p>Every title on G-box. Search by name or description, then narrow by type or genre.</p>
+      </div>
+
+      <form class="g-filters row g-3" role="search" onsubmit="return false">
+        <div class="col-12 col-md-5">
+          <label for="q" class="form-label">Search</label>
+          <input id="q" class="form-control" type="search" placeholder="Try &quot;mountain&quot; or &quot;kitchen&quot;" autocomplete="off">
+        </div>
+        <div class="col-6 col-md-2">
+          <label for="type" class="form-label">Type</label>
+          <select id="type" class="form-select">
+            <option value="all">All</option><option>Film</option><option>Series</option><option>Documentary</option><option>Educational</option>
+          </select>
+        </div>
+        <div class="col-6 col-md-2">
+          <label for="genre" class="form-label">Genre</label>
+          <select id="genre" class="form-select"><option value="all">All</option></select>
+        </div>
+        <div class="col-6 col-md-2">
+          <label for="sort" class="form-label">Sort</label>
+          <select id="sort" class="form-select"><option value="default">Featured</option><option value="newest">Newest</option><option value="az">A to Z</option></select>
+        </div>
+        <div class="col-6 col-md-1 d-flex align-items-end">
+          <button type="button" id="reset" class="btn btn-line w-100 px-2">Reset</button>
+        </div>
+      </form>
+
+      <p id="count" class="text-secondary" aria-live="polite"></p>
+      <div id="results" class="g-grid"></div>
+      <div id="empty" class="g-empty" hidden>
+        <h2>Nothing matches</h2>
+        <p>Try a different word, or press Reset to see all titles.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="g-footer">
+    <div class="container d-flex flex-wrap justify-content-between gap-2">
+      <span>G-box · a demonstration streaming platform. All posters and trailers are original sample content.</span>
+      <span><a href="about.html">Help</a> · <a href="signin.html">Sign in</a></span>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/catalogue.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
